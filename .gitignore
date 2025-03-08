@@ -2,3 +2,4 @@ api.key
 config.json
 main
 RSA_TO_WSL2.pem
+ec2.sh
