@@ -2,20 +2,15 @@ package main
 
 import (
 	"fmt"
-
-	"github.com/AaryanO2/go_projects/project_7_discord_bot/bot"
-	"github.com/AaryanO2/go_projects/project_7_discord_bot/config"
+	"html"
+	"net/http"
 )
 
 func main() {
-	err := config.ReadConfig()
-	if err != nil {
-		fmt.Println(err.Error())
-		return
-	}
-
-	bot.Start()
-
-	<-make(chan struct{})
-
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "hello %q\n", html.EscapeString(r.URL.Path))
+	})
+	http.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "hi")
+	})
 }
