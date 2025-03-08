@@ -11,4 +11,4 @@ cd /home/ec2-user/app
 
 docker build -t my-app .
 
-docker run -d -p 80:80 my-app
+docker run -d -p 8081:8081 my-app
